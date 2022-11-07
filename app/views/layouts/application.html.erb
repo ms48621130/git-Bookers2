@@ -22,9 +22,9 @@
                   aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
+          <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
               <div>
@@ -57,7 +57,7 @@
               </div>
             <% end %>
           </li>
-        <% else %>
+          <% else %>
           <li>
             <%= link_to root_path, class: 'nav-link text-light' do %>
               <div>
@@ -90,9 +90,9 @@
               </div>
             <% end %>
           </li>
-        <% end %>
+          <% end %>
           </ul>
-        </div>
+          </div>
       </div>
     </nav>
   </header>
