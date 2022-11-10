@@ -1,4 +1,20 @@
 <body>
+  <div class = "col-md-3">
+  <h2>User info</h2>
+  <%= image_tag @user.get_image(100,100) ,size: "100x100" %>
+  <table class = "table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%#= @user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>New book</h2>
 
@@ -19,5 +35,5 @@
 
     <%= f.submit 'Create Book' %>
   <% end %>
-
+  </div>
 </body>
