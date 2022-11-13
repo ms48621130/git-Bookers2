@@ -1,0 +1,21 @@
+<%= render 'books/list', user: @user, book: @book %>
+<h2>Book detail</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to user_path(@user.id) do %>
+          <%= image_tag @user.get_image(100, 100) %>
+        <% end %>
+      </td>
+      <td>
+        <%=@book.title %>
+      </td>
+      <td>
+        <%=@book.body %>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

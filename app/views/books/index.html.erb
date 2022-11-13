@@ -1,45 +1,5 @@
-<body>
-  <div class = "col-md-3">
-  <h2>User info</h2>
-  <%= image_tag @user.get_image(50, 50) ,size: "100x100" %>
-  <table class = "table">
-    <tbody>
-      <tr></tr>
-      <tr>
-        <th>name</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr>
-        <th>introduction</th>
-        <th><%= @user.introduction %></th>
-      </tr>
-    </tbody>
-  </table>
+<%= render 'books/list', user: @user, book: @book %>
 
-  <div class = "row">
-    <%= link_to edit_user_path %>
-  </div>
-
-  <h2>New book</h2>
-
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %>errors prohibited this book from being saved:
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <%= form_with model: @book, url: books_path, method: :post do |f| %>
-    <h4>Title</h4>
-    <%= f.text_field :title %>
-    <h4>Opinion</h4>
-    <%= f.text_area :body %>
-
-    <%= f.submit 'Create Book' %>
-  <% end %>
-  </div>
   <div class = "col-md-3">
     <h2>Books</h2>
     <table class = "table table-hover table-inverse">
@@ -52,10 +12,22 @@
         </tr>
       </thead>
       <tbody>
-        <%= image_tag @user.get_image(50, 50) ,size: "100x100" %>
-        <tr></tr>
+        <% @books.each do |book| %>
+          <tr>
+            <td>
+              <%= link_to user_path(@user.id) do %>
+                <%= image_tag @user.get_image(100, 100) %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%=book.title %>
+              <% end %>
+            </td>
+           <td><%=book.body %></td>
+          </tr>
+        <% end %>
       </tbody>
-        
     </table>
   </div>
-</body>
+
