@@ -1,5 +1,3 @@
-<p id="notice"></p>
-
 <%= render 'books/list', user: @user , book: @book %>
 <div class="col-md-8 offset-md-1">
   <h2>Users</h2>
@@ -12,15 +10,15 @@
       </tr>
     </thead>
     <tbody>
-        <% @users.each do |user| %>
-         <tr>
-           <%= link_to user_path(@user.id) do %>
-             <td><%= image_tag @user.get_image(100, 100) %></td>
-           <% end %>
-           <td><%=user.name %></td>
-           <td><%=link_to "Show",user_path(@user.id) %></td>
-         </tr>
-        <% end %>
-      </tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <%= link_to user_path(@user.id) do %>
+            <td><%= image_tag @user.get_image(100, 100) %></td>
+          <% end %>
+          <td><%=user.name %></td>
+          <td><%=link_to "Show",user_path(@user.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
