@@ -1,31 +1,43 @@
-<%= render 'books/list', user: @book.user, book: @book_new %>
-<h2>Book detail</h2>
-<table class="table">
-  <tbody>
-    <tr>
-      <td>
-        <%= link_to user_path(@book.user.id) do %>
-          <%= image_tag @book.user.get_image(100, 100) %>
-          <div><%=@book.user.name %></div>
-        <% end %>
-      </td>
-      <td>
-        <%=@book.title %>
-      </td>
-      <td>
-        <%=@book.body %>
-      </td>
-      <% if @book.user == current_user %>
-        <td>
-          <%=link_to edit_book_path(@book.id), class: "btn btn-sm btn-success" do %>
-          Edit
-          <% end %>
-        </td>
-        <td>
-          <%=link_to book_path(@book.id),method: :delete, "data-confirm" => "本当に消しますか？" , class: "btn btn-sm btn-danger" do %>
-          Destroy
-          <% end %>
-        </td>
-    </tr>
-  </tbody>
-</table>
+<body>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class = "col-md-3">
+        <%= render 'books/list', user: @book.user, book: @book_new %>
+      </div>
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(@book.user.id) do %>
+                  <%= image_tag @book.user.get_image(100, 100) %>
+                  <div><%=@book.user.name %></div>
+                <% end %>
+              </td>
+              <td>
+                <%=@book.title %>
+              </td>
+              <td>
+                <%=@book.body %>
+              </td>
+              <% if @book.user == current_user %>
+                <td>
+                  <%=link_to edit_book_path(@book.id), class: "btn btn-sm btn-success" do %>
+                    Edit
+                  <% end %>
+                </td>
+                <td>
+                  <%=link_to book_path(@book.id),method: :delete, "data-confirm" => "本当に消しますか？" , class: "btn btn-sm btn-danger" do %>
+                    Destroy
+                <% end %>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
