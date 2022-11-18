@@ -3,10 +3,13 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = current_user
+
+
   end
 
   def create
     @book = Book.new(book_params)
+    @user = current_user
     @book.user_id = current_user.id
     if @book.save
      flash[:notice] = "You have created book successfully."
@@ -20,7 +23,7 @@ class BooksController < ApplicationController
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
-    
+
   end
 
   def edit

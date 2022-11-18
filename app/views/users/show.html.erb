@@ -21,19 +21,24 @@
             </tr>
           </thead>
           <tbody>
-            <td>
-              <%= link_to user_path(@user.id) do %>
-                <%= image_tag @user.get_image(100, 100) %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to book_path(@book.id) do %>
-                <%=@book.title %>
-              <% end %>
-            </td>
-            <td>
-              <%=@book.body %>
-            </td>
+            <% @books.each do |book| %>
+              <tr>
+                <td>
+                  <%= link_to user_path(@user.id) do %>
+                    <%= image_tag @user.get_image(100, 100) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_path(book.id) do %>
+                    <%=book.title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%=book.body %>
+                </td>
+                <td></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

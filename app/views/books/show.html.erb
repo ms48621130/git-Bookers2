@@ -21,7 +21,9 @@
                 <% end %>
               </td>
               <td>
+                <%= link_to book_path(@book.id) do %>
                 <%=@book.title %>
+                <% end %>
               </td>
               <td>
                 <%=@book.body %>
@@ -35,7 +37,7 @@
                 <td>
                   <%=link_to book_path(@book.id),method: :delete, "data-confirm" => "本当に消しますか？" , class: "btn btn-sm btn-danger" do %>
                     Destroy
-                <% end %>
+                  <% end %>
                 </td>
               <% end %>
             </tr>
